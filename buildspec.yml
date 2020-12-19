@@ -11,7 +11,7 @@ phases:
       - yum -y install python3-pip python3-dev pipenv
       - pip3 install --upgrade awscli
       - pipenv install
-      - pipenv shell
+      # - pipenv shell
       # - pip3 install -r requirements.txt
       # - python3 -m pytest test_main.py
 
@@ -20,9 +20,9 @@ phases:
       - python app.py
 
 
-  post_build:
-    commands:
-      - echo Entered the post_build phase...
-      - echo Build completed on `date`
-      - ls -alh
-      - ls -alh ..
+#  post_build:
+#    commands:
+#      - echo Entered the post_build phase...
+#      - echo Build completed on `date`
+#      - ls -alh
+#      - ls -alh ..
