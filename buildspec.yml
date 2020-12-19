@@ -17,5 +17,12 @@ phases:
 
   build:
     commands:
-      - pipenv shell
-      -python app.py
+      - python app.py
+
+
+  post_build:
+    commands:
+      - echo Entered the post_build phase...
+      - echo Build completed on `date`
+      - ls -alh
+      - ls -alh ..
