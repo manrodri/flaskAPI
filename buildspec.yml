@@ -25,13 +25,13 @@ phases:
       - pipenv shell
       -python app.py
 
-
-artifacts:
-  type: zip
-  files:
-    - 'template.yml'
-    - 'scripts/**/*'
-    - 'helloworld/**/*.py'
-    - 'appspec.yml'
-    - 'requirements.txt'
-    - 'setup.py'
+#
+#artifacts:
+#  type: zip
+#  files:
+#    - 'template.yml'
+#    - 'scripts/**/*'
+#    - 'helloworld/**/*.py'
+#    - 'appspec.yml'
+#    - 'requirements.txt'
+#    - 'setup.py'
