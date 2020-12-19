@@ -3,26 +3,19 @@ version: 0.2
 phases:
   install:
     commands:
-      - echo Entered the install phase...
-      - apt-get update -y
-      - apt install -y build-essential apt-transport-https lsb-release ca-certificates curl
-      - curl -sL https://deb.nodesource.com/setup_12.x | bash -
-      - apt install -y nodejs
+      #- curl -sS -o aws-iam-authenticator https://amazon-eks.s3-us-west-2.amazonaws.com/1.14.6/2019-08-22/bin/linux/amd64/aws-iam-authenticator
+      # - curl -sS -o kubectl https://amazon-eks.s3-us-west-2.amazonaws.com/1.14.6/2019-08-22/bin/linux/amd64/kubectl
+      # - chmod +x ./kubectl ./aws-iam-authenticator
+      - export PATH=$PWD/:$PATH
+      - yum -y update && yum -y install jq
+      - yum -y install python3-pip python3-dev pipenv
+      - pip3 install --upgrade awscli
+      - pipenv install
+      - pipenv shell
+      # - pip3 install -r requirements.txt
+      # - python3 -m pytest test_main.py
 
   build:
     commands:
-      - echo Entered the build phase...
-      - echo Build started on `date`
-      - cd front-end
-      - npm install
-      - npm run build
-      - cd ../back-end
-      - npm install
-
-
-  post_build:
-    commands:
-      - echo Entered the post_build phase...
-      - echo Build completed on `date`
-      - ls -alh
-      - ls -alh ..
+      - pipenv shell
+      -python app.py
